@@ -160,20 +160,6 @@ Creates a to-do item.
 | --- | --- |
 | 400 | Invalid request body |
 
-Body
-raw (json)
-json
-{
-  "title": "Finish portfolio"
-}
-{
-  "title": "Buy groceries",
-  "completed": false
-}
-PUT
-http://localhost:3000/todos/1
-http://localhost:3000/todos/1
-
 
 # Endpoints
 
