@@ -19,33 +19,32 @@ No authentication required for this demo API.
     
 - `/todos/{id}` — Retrieve, update, or delete a specific todo
 
+# Endpoints
 
-Endpoints
-GET /todos/ - Get a to-do list
-Description
+## GET /todos/ - Get a to-do list
+
+### Description
+
 Returns an array of all to-do list items.
 
+---
 
+#### Request
 
-Request
-Method: GET
-URL: /todos
-Parameters: None
-Body: None
+- **Method**: GET
+    
+- **URL**: `/todos`
+    
+- **Parameters**: None
+    
+- **Body**: None
+    
 
-Successful Response (200)
+#### Successful Response (200)
+
 Returns an array of to-do items.
 
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 [
   {
     "id": "1",
@@ -59,366 +58,223 @@ JSON
   }
 ]
 
+ ```
 
-Error Codes
+#### Error Codes
+
 None
 
+# Endpoints
 
+## GET /todos/{id} - Get a specific to-do
 
-Endpoints
-GET /todos/{id} - Get a specific to-do
-Description
+### Description
+
 Returns a single to-do item by its unique ID.
 
+---
 
+#### Request
 
-Request
-Method: PUT
-URL: /todos/{id}
+- **Method**: PUT
+    
+- **URL**: `/todos/{id}`
+    
 
-Query parameters
-NameTypeRequiredDescrptionid
+#### Query parameters
 
+| Name | Type | Required | Descrption |
+| --- | --- | --- | --- |
+| id | Path | Yes | ID of the to-do item |
 
+**Body**: None
 
+#### Successful Response (200)
 
-
-Path
-
-
-
-
-
-Yes
-
-
-
-
-
-ID of the to-do item
-
-
-
-
-
-
-Body: None
-Successful Response (200)
 Updates a to-do item.
 
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
  "id": "3",
  "Title": "New task",
   "Completed": true
 }
 
+ ```
 
-Error Codes
-CodeMeaning404
+#### Error Codes
 
+| Code | Meaning |
+| --- | --- |
+| 404 | To-do not found |
 
+# Endpoints
 
+## POST /todos - Create a new to-do
 
+### Description
 
-To-do not found
-
-
-
-Endpoints
-POST /todos - Create a new to-do
-Description
 Creates a new to-do item and returns the created object.
 
+---
 
+#### Request
 
-Request
-Method: GET
-URL: /todos
+- **Method**: GET
+    
+- **URL**: `/todos`
+    
 
-Query parameters
-NameTypeRequiredDescrptionid
+#### Query parameters
 
+| Name | Type | Required | Descrption |
+| --- | --- | --- | --- |
+| id | Path | Yes | ID of the to-do item |
 
+#### Body example
 
-
-
-Path
-
-
-
-
-
-Yes
-
-
-
-
-
-ID of the to-do item
-
-
-
-
-
-
-Body example
-
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
   "Title": "New task",
   "Completed": false
 }
 
+ ```
 
-Successful Response (201)
+#### Successful Response (201)
+
 Creates a to-do item.
 
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
  "id": "3",
  "Title": "New task",
   "Completed": false
 }
 
+ ```
 
-Error Codes
-CodeMeaning400
+#### Error Codes
+
+| Code | Meaning |
+| --- | --- |
+| 400 | Invalid request body |
+
+Body
+raw (json)
+json
+{
+  "title": "Finish portfolio"
+}
+{
+  "title": "Buy groceries",
+  "completed": false
+}
+PUT
+http://localhost:3000/todos/1
+http://localhost:3000/todos/1
 
 
+# Endpoints
 
+## PUT /todos/{id} - Update a to-do
 
+### Description
 
-Invalid request body
-
-
-
-
-
-
-Endpoints
-PUT /todos/{id} - Update a to-do
-Description
 Replaces an exisitng to-do item with updated data.
 
+---
 
+#### Request
 
-Request
-Method: PUT
-URL: /todos/{id}
+- **Method**: PUT
+    
+- **URL**: `/todos/{id}`
+    
 
-Query parameters
-NameTypeRequiredDescrptionid
+#### Query parameters
 
+| Name | Type | Required | Descrption |
+| --- | --- | --- | --- |
+| id | Path | Yes | ID of the to-do item |
 
+#### Body exampl
 
-
-
-Path
-
-
-
-
-
-Yes
-
-
-
-
-
-ID of the to-do item
-
-
-
-
-
-
-Body exampl
-
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
   "Title": "New task",
   "Completed": true
 }
 
+ ```
 
-Successful Response (200)
+#### Successful Response (200)
+
 Updates a to-do item.
 
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
  "id": "3",
  "Title": "New task",
   "Completed": true
 }
 
+ ```
 
-Error Codes
-CodeMeaning400
+#### Error Codes
 
-
-
-
-
-Invalid request body
-
+| Code | Meaning |
+| --- | --- |
+| 400 | Invalid request body |
+| 404 | To-do not found |
 
 
+# Endpoints
 
+## DELETE /todos/{id} - Delete a to-do item
 
-404
+### Description
 
-
-
-
-
-To-do not found
-
-
-
-
-
-Endpoints
-DELETE /todos/{id} - Delete a to-do item
-Description
 Deletes a to-do item by ID.
 
+---
 
+#### Request
 
-Request
-Method: Delete
-URL: /todos/{id}
+- **Method**: Delete
+    
+- **URL**: `/todos/{id}`
+    
 
-Query parameters
-NameTypeRequiredDescrptionid
+#### Query parameters
 
+| Name | Type | Required | Descrption |
+| --- | --- | --- | --- |
+| id | Path | Yes | ID of the to-do item |
 
+**Body**: none
 
-
-
-Path
-
-
-
-
-
-Yes
-
-
-
-
-
-ID of the to-do item
-
-
-
-
-
-
-Body: none
-
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
   "Title": "New task",
   "Completed": false
 }
 
+ ```
 
-Successful Response (200)
+#### Successful Response (200)
+
 Deletes a to-do item.
 
-
-JSON
-
-
-
-
-
-
-
-
+``` json
 {
  "message": "To-do deleted successfully"
 }
 
+ ```
 
-Error Codes
-CodeMeaning404
+#### Error Codes
 
-
-
-
-
-To-do not found
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Code | Meaning |
+| --- | --- |
+| 404 | To-do not found |
